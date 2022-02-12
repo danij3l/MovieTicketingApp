@@ -1,0 +1,19 @@
+.titleText{
+        margin-bottom: -2px;
+        text-align: center;
+        font-size: large;
+        font-family: fantasy;
+        color: rgb(82, 0, 0);
+    }
+.movieThumbnail{
+        margin-bottom: 2em;
+        width: 150px;
+        height: auto;
+        flex-wrap: wrap;
+        flex-direction: column;
+        display: flex;
+        height: fit-content;
+        align-items: left;
+}
+
+        
