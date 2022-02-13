@@ -16,4 +16,22 @@
         align-items: left;
 }
 
+.selector{
+        word-wrap: normal;
+        margin-top: auto;
+        text-decoration: solid;
+        font-size: large;
+        font-weight: bold;
+        align-self: center;
+        text-align: center;
+        text-decoration: solid;
+        font-size: large;
+        align-items: center;
+
+}
+
+
+
+
+
         

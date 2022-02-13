@@ -10,6 +10,7 @@ Requairements are:
 - Final section for billing (mockup only)
 -->
 
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,7 +21,6 @@ Requairements are:
 
 <body style="background-color: black;">
 
-    </table>
     <div>
         <p class="titleText">Welcome to your chill</p>
         <div class="pictures">
@@ -45,7 +45,7 @@ Requairements are:
                     <td>
                         <ul class="movieAvalability" id="hobbit">
                         <li>Monday - 17:00</li>
-                        <li>Monday - 21:00</li>
+                        <li>Wenesday - 21:00</li>
                     </ul></td> 
                 </tr>
                 <!--Lotr-->
@@ -105,8 +105,54 @@ Requairements are:
                         <li>Friday - 22:00</li>
                     </ul></td>
 
-                </tr>     
+                </tr> 
+            </table> 
+
+            <!--SelecorOfMovies-->
+            <select id="movieSelector" class="selector"
+            onchange="singleSelectChangeValue()">
+                <option>Select show</option>
+                <option value="Hobbit">Hobbit (10€)</option>
+                <option value="Lord of the rings">Lord of the rings (8€)</option>
+                <option value="Matrix">Matrix (6)</option>
+                <option value="John Wick">John Wick (12€)</option>
+            </select>
+
+            <div class="billingDetails">
+                <h2>Billing Details</h2>
+                <h3>Show selected</h3>
+                <input id="textFieldValueJS" class="selector"
+                    placeholder="None">
+
+                <p id="textFieldValueJS" class="selector"> </p>
+            </div>
+              
     </div>
-    
+
+  <script>
+        //Function that displays selected values
+        function singleSelectChangeValue() {
+        //Getting Value
+        
+        //var selValue = document.getElementById("singleSelectDD").value;
+        var selObj = document.getElementById("movieSelector");
+        var selValue = selObj.options[selObj.selectedIndex].value;
+        //Setting Value
+        document.getElementById("textFieldValueJS").value = selValue;
+        }
+    </script>
+
+
+<!-- 
+  On billing section, we need next information:
+- Number of tickets
+- Seating positions
+- Selected shows
+- Date and time of show
+- Total price
+-->
+
+
 </body>
+
 </html>
