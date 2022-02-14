@@ -108,7 +108,7 @@ Requairements are:
                 </tr> 
             </table> 
 
-            <!--SelecorOfMovies-->
+            <!--Show Selector-->
             <select id="movieSelector" class="selector"
             onchange="singleSelectChangeValue()">
                 <option>Select show</option>
@@ -118,13 +118,41 @@ Requairements are:
                 <option value="John Wick">John Wick (12€)</option>
             </select>
 
+            <!--Time Selector-->
+            <select id="timeSelector" class="selector"
+            onchange="singleSelectChangeValue()">
+            <option>Select time of play</option>
+              <optgroup label="Hobbit">
+                <option value="Monday - 17:00">Monday - 17:00</option>
+                <option value="Tusaday - 21:00">Tuseday - 21:00</option>
+              </optgroup>
+              <optgroup label="LOTR">
+                <option value="Monday - 16:30">Monday 16:30</option>
+                <option value="Tuesday - 22:00">Tuesday - 22:00</option>
+              </optgroup>
+              <optgroup label="Matrix">
+                <option value="Monday - 17:00">Monday 17:00</option>
+                <option value="Wenesday - 20:00">Wenesday - 20:00</option>
+                <option value="Friday - 22:30">Friday - 22:30</option>
+              </optgroup>
+              <optgroup label="John Wick">
+                <option value="Monday - 15:00">Monday 15:00</option>
+                <option value="Wenesday - 18:00">Wenesday - 18:00</option>
+                <option value="Friday - 22:00">Friday - 22:00</option>
+              </optgroup>
+            </select>
+
             <div class="billingDetails">
                 <h2>Billing Details</h2>
-                <h3>Show selected</h3>
-                <input id="textFieldValueJS" class="selector"
-                    placeholder="None">
 
-                <p id="textFieldValueJS" class="selector"> </p>
+                <!--Displaying selected movie-->
+                <h3>Time selected</h3>
+                <input id="show" class="selector" placeholder="None">
+
+                <!--Displaying selected time-->
+                <h3>Show selected</h3>
+                <input id="time" class="selector"bplaceholder="None">
+
             </div>
               
     </div>
@@ -132,14 +160,13 @@ Requairements are:
   <script>
         //Function that displays selected values
         function singleSelectChangeValue() {
-        //Getting Value
-        
-        //var selValue = document.getElementById("singleSelectDD").value;
-        var selObj = document.getElementById("movieSelector");
-        var selValue = selObj.options[selObj.selectedIndex].value;
-        //Setting Value
-        document.getElementById("textFieldValueJS").value = selValue;
+        var valueMovie = movieSelector.value;
+        document.getElementById("show").value = valueMovie;
+
+        var valueTime = timeSelector.value;
+        document.getElementById("time").value = valueTime;
         }
+
     </script>
 
 
@@ -147,8 +174,8 @@ Requairements are:
   On billing section, we need next information:
 - Number of tickets
 - Seating positions
-- Selected shows
-- Date and time of show
+- Selected shows - DONE
+- Date and time of show - DONE
 - Total price
 -->
 
