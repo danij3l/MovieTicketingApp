@@ -1,185 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!--
-Create single page web application for buying tickets. Something similar to CineStar application.
-Requairements are:
-- Section where user can select from available shows
-- Section where user can choose type and amount of tickets
-- Section where user can choose seats available
-- Final section for billing (mockup only)
--->
-
-
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Movie Tickeding App</title>
-</head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ultra&display=swap" rel="stylesheet">
+  </head>
 
-<body style="background-color: black;">
+  <body>
+    <div class="banner">
+      <img src="images/logo.jpg">
+    </div>
+    <div class="container">
+      <h2>Avalable shows<h2>
 
-    <div>
-        <p class="titleText">Welcome to your chill</p>
-        <div class="pictures">
-            <img style="opacity: 0.7;" src="images/logo.jpg">
-            <p style="font-size:15px ; margin-bottom:1em;" class="titleText">Avalable shows</p>
-            <table>
-                <tr>
-                    <p style="text-align: right;">Avalable day and time</p>
-                </tr>
-                <!--Hobbit-->
-                <tr>
-                    <td class="movieThumbnail">
-                        <img src="images/hobbit.jpg">
-                    </td>
-                    <td>
-                        <ul class="movieDescription" id="hobbit">
-                            <li>Duration: 140 min</li>
-                            <li>Genre: Fantasy</li>
-                            <li>Description:Bilbo is going for an adventure</li>
-                        </ul>
-                    </td> 
-                    <td>
-                        <ul class="movieAvalability" id="hobbit">
-                        <li>Monday - 17:00</li>
-                        <li>Wenesday - 21:00</li>
-                    </ul></td> 
-                </tr>
-                <!--Lotr-->
-                <tr> 
-                    <td class="movieThumbnail">
-                        <img src="images/lotr.jpg">
-                    </td>
-                    <td>
-                        <ul class="movieDescription" id="lotr">
-                            <li>Duration: 160 min</li>
-                            <li>Genre: Fantasy</li>
-                            <li>Description:One does not simply walk into Mordor </li>
-                        </ul>
-                    </td> 
-                    <td>
-                        <ul class="movieAvalability" id="lotr">
-                        <li>Monday - 16:30</li>
-                        <li>Tuesday - 22:00</li>
-                    </ul></td>
-                </tr>    
-                <!--Matrix-->
-                <tr> 
-                    <td class="movieThumbnail">
-                        <img src="images/matrix.jpg">
-                    </td>
-                    <td>
-                        <ul class="movieDescription" id="matrix">
-                            <li>Duration: 140 min</li>
-                            <li>Genre: Action</li>
-                            <li>Description:Blue pill or red pill ^^ </li>
-                        </ul>
-                    </td> 
-                    <td>
-                        <ul class="movieAvalability" id="matrix">
-                        <li>Monday - 17:00</li>
-                        <li>Wenesday - 20:00</li>
-                        <li>Friday - 22:30</li>
-                    </ul></td>
 
-                </tr>
-                <!--John Wick-->
-                <tr> 
-                    <td class="movieThumbnail">
-                        <img src="images/john.jpg">
-                    </td>
-                    <td>
-                        <ul class="movieDescription" id="john">
-                            <li>Duration: 150 min</li>
-                            <li>Genre: Action</li>
-                            <li>Description:Enter Baba Jaga </li>
-                        </ul>
-                    </td> 
-                    <td>
-                        <ul class="movieAvalability" id="john">
-                        <li>Monday - 15:00</li>
-                        <li>Wenesday - 18:00</li>
-                        <li>Friday - 22:00</li>
-                    </ul></td>
 
-                </tr> 
-            </table> 
+          <!--Hobbit-->
+          <a href="#time">
+            <div class="grid">
+              <img class="movieThumbnail" src="images/hobbit.jpg">
+              <ul class="movieDescription" id="hobbit">
+                <div class="movieTitle">Hobbit</div>
+                <li>Duration: 140 min</li>
+                <li>Genre: Fantasy</li>
+                <li>Description: Bilbo is going for an adventure</li>
+              </ul>
+              <ul class="movieAvalability" id="hobbit">
+                <li>Monday - 17:00 (3D)</li>
+                <li>Wenesday - 21:00</li>
+              </ul>
+            </div>
+          </a>
 
-            <!--Show Selector-->
-            <select id="movieSelector" class="selector"
-            onchange="singleSelectChangeValue()">
-                <option>Select show</option>
-                <option value="Hobbit">Hobbit (10€)</option>
-                <option value="Lord of the rings">Lord of the rings (8€)</option>
-                <option value="Matrix">Matrix (6)</option>
-                <option value="John Wick">John Wick (12€)</option>
-            </select>
+          <!--Lotr-->
+          <a href="#time">
+            <div class="grid">
+              <img class="movieThumbnail" src="images/lotr.jpg">
 
-            <!--Time Selector-->
-            <select id="timeSelector" class="selector"
-            onchange="singleSelectChangeValue()">
-            <option>Select time of play</option>
+              <ul class="movieDescription" id="lotr">
+                <div class="movieTitle">Lord of the Rings</div>
+                <li>Duration: 160 min</li>
+                <li>Genre: Fantasy</li>
+                <li>Description: One does not simply walk into Mordor </li>
+              </ul>
+
+              <ul class="movieAvalability" id="lotr">
+                <li>Monday - 16:30</li>
+                <li>Tuesday - 22:00</li>
+              </ul>
+            </div>
+          </a>
+
+
+          <!--Matrix-->
+          <a href="#time">
+            <div class="grid">
+              <img class="movieThumbnail" src="images/matrix.jpg">
+
+              <ul class="movieDescription" id="matrix">
+                <div class="movieTitle">The Matrix</div>
+                <li>Duration: 140 min</li>
+                <li>Genre: Action</li>
+                <li>Description: Blue pill or red pill ^^ </li>
+              </ul>
+
+              <ul class="movieAvalability" id="matrix">
+                <li>Monday - 17:00</li>
+                <li>Wenesday - 20:00</li>
+                <li>Friday - 22:30</li>
+              </ul>
+            </div>
+          </a>
+
+          <!--John Wick-->
+          <a href="#time">
+            <div class="grid">
+              <img class="movieThumbnail" src="images/john.jpg">
+
+              <ul class="movieDescription" id="john">
+                <div class="movieTitle">John Wick</div>
+                <li>Duration: 150 min</li>
+                <li>Genre: Action</li>
+                <li>Description: Enter Baba Jaga </li>
+              </ul>
+
+              <ul class="movieAvalability" id="john">
+                <li>Monday - 15:00</li>
+                <li>Wenesday - 18:00</li>
+                <li>Friday - 22:00</li>
+              </ul>
+            </div>
+          </a>
+
+
+
+          <!--Time Selector-->
+          <div id="time" class="selection">
+            <h2 id="time">First select time of play</h2>
+            <select id="timeSelector" class="selector" onchange="billDataSplitter()">
+              <option>Select time of play</option>
               <optgroup label="Hobbit">
-                <option value="Monday - 17:00">Monday - 17:00</option>
-                <option value="Tusaday - 21:00">Tuseday - 21:00</option>
+                <option value="12,Wenesday - 21:00,Hobbit">Wenesday - 21:00 (12€)</option>
+                <option value="15,Friday - 17:00,Hobbit 3D">Friday - 17:00 (15€)</option>
+
               </optgroup>
               <optgroup label="LOTR">
-                <option value="Monday - 16:30">Monday 16:30</option>
-                <option value="Tuesday - 22:00">Tuesday - 22:00</option>
+                <option value="12,Monday - 16:30, Lord Of The rings">Monday 16:30 (12€)</option>
+                <option value="18,Monday - 17:30, Lord Of The rings (4DX)">Tuesday 17:30 (18€)</option>
               </optgroup>
               <optgroup label="Matrix">
-                <option value="Monday - 17:00">Monday 17:00</option>
-                <option value="Wenesday - 20:00">Wenesday - 20:00</option>
-                <option value="Friday - 22:30">Friday - 22:30</option>
+                <option value="8,Monday - 17:00, Matrix">Monday 17:00 (8€)</option>
+                <option value="8,Sunday - 19:00, Matrix">Sunday 19:00 (8€)</option>
+                <option value="10,Friday - 22:30, Matrix 3DX">Friday - 22:30 (10€)</option>
               </optgroup>
               <optgroup label="John Wick">
-                <option value="Monday - 15:00">Monday 15:00</option>
-                <option value="Wenesday - 18:00">Wenesday - 18:00</option>
-                <option value="Friday - 22:00">Friday - 22:00</option>
+                <option value="12,Wenesday - 18:00, John Wick">Wenesday - 18:00 (12€)</option>
+                <option value="15,Friday - 22:00,John Wick (Gold Class)">Friday - 22:00 (15€)</option>
               </optgroup>
             </select>
+          </div>
 
-            <div class="billingDetails">
-                <h2>Billing Details</h2>
+          <div class="selection">
+            <h2>Select seats</h2>
 
-                <!--Displaying selected movie-->
-                <h3>Time selected</h3>
-                <input id="show" class="selector" placeholder="None">
+            <ul class="seatStatuses">
+              <li>
+                <div class="defaultSeat"></div>
+                <small class="status" style="font-size: 1em;">Avalable</small>
+              </li>
+              <li>
+                <div class="seatSelected"></div>
+                <small class="status" style="font-size: 1em;">Selected</small>
+              </li>
+              <li>
+                <div class="seatOccupied"></div>
+                <small class="status" style="font-size: 1em;">Occupied</small>
+              </li>
+            </ul>
 
-                <!--Displaying selected time-->
-                <h3>Show selected</h3>
-                <input id="time" class="selector"bplaceholder="None">
+            <div class="screen"></div>
 
-            </div>
-              
+            <div class="seats" id="theatarSeats"></div>
+          </div>
+
+
+
+          <div id="bill" class="billingDetails">
+            <h2>Billing Details</h2>
+
+            <!--Displaying selected movie-->
+            <h3>Show selected</h3>
+            <input id="billData.show" class="billDisplay" placeholder="None">
+
+
+            <!--Displaying selected time-->
+            <h3>Time of show</h3>
+            <input id="billData.timeOfShow" class="billDisplay" placeholder="None">
+
+            <h3>
+              You have selected <span class="countAndPrice" id="count">0</span>
+              tickets for a price of $<span class="countAndPrice" aria-placeholder="" id="total">0</span>
+            </h3>
+
+          </div>
+
     </div>
 
-  <script>
-        //Function that displays selected values
-        function singleSelectChangeValue() {
-        var valueMovie = movieSelector.value;
-        document.getElementById("show").value = valueMovie;
 
-        var valueTime = timeSelector.value;
-        document.getElementById("time").value = valueTime;
+
+    <script>
+      /* todo:
+      movies are objects or arrays inestead of hardcoding
+      every time if a user changes his mind and changes movie or time - seat position occupation resets
+      add displaying of array or list of selected seats
+      adding alert that doesn't allow user to click on seats before selecting the time of play
+      
+      
+      let movies = [
+        {
+          "name": "Hobbit",
+          "price": "10",
+          "timesOfPlay": new Date('2022--17T03:24:00'),
+        },
+      ] */
+
+
+      //import required for $
+      var script = document.createElement('script');
+      script.src = 'https://code.jquery.com/jquery-3.4.1.min.js';
+      script.type = 'text/javascript';
+      document.getElementsByTagName('head')[0].appendChild(script);
+
+      const container = document.getElementById("theatarSeats");
+
+      function makeSeats(rows, cols) {
+        container.style.setProperty('--grid-rows', rows);
+        container.style.setProperty('--grid-cols', cols);
+        for (c = 0; c < (rows * cols); c++) {
+          let seat = document.createElement("button");
+          seat.innerText = (c + 1);
+          //adding class Name to each seat
+          container.appendChild(seat).className = "seat";
+          //adding id to each seat
+          container.appendChild(seat).id = c + 1;
         }
+      };
+
+      makeSeats(6, 7);
+
+      //hardcode occuping usuially most picked seats
+      document.getElementById(25).className = 'seatOccupied';
+      document.getElementById(26).className = 'seatOccupied';
+      document.getElementById(31).className = 'seatOccupied';
+      document.getElementById(32).className = 'seatOccupied';
+      document.getElementById(33).className = 'seatOccupied';
+      document.getElementById(34).className = 'seatOccupied';
+      document.getElementById(37).className = 'seatOccupied';
+      document.getElementById(38).className = 'seatOccupied';
+
+
+      //Function that splits three strings from option value and assigns them to the bill section
+      function billDataSplitter(value) {
+        var price = $('#timeSelector').val().split(',')[0];
+        var time = $('#timeSelector').val().split(',')[1];
+        var show = $('#timeSelector').val().split(',')[2];
+        document.getElementById("billData.show").value = show;
+        document.getElementById("billData.timeOfShow").value = time;
+      }
+
+      function changeClass(seat, seatId) {
+        seat.className = "seatSelected";
+      }
+
+      var count = 0;
+      var seats = document.getElementsByClassName("seat");
+
+      for (var i = 0; i < seats.length; i++) {
+        var item = seats[i];
+
+        item.addEventListener("click", (event) => {
+          var price = $('#timeSelector').val().split(',')[0];
+
+          if (!event.target.classList.contains('seatOccupied') && !event.target.classList.contains('seatSelected')) {
+            count++;
+
+            var total = count * price;
+            event.target.classList.add("seatSelected");
+            document.getElementById("count").innerText = count;
+            document.getElementById("total").innerText = total;
+
+          }
+          else
+            event.target.classList.remove("seatSelected");
+        })
+      }
 
     </script>
-
-
-<!-- 
-  On billing section, we need next information:
-- Number of tickets
-- Seating positions
-- Selected shows - DONE
-- Date and time of show - DONE
-- Total price
--->
-
-
-</body>
+  </body>
 
 </html>

@@ -1,3 +1,55 @@
+* {
+        box-sizing: border-box;
+}
+
+body{
+        background-color: black;
+        color: #ddd;
+        width: auto;
+        align-items: center;
+        text-align:center;
+        
+      }
+
+.banner{
+        align-self: center;
+        left: 0px;
+        top: 0px;
+        margin-bottom: -100px;
+        min-height: 75px;
+        max-height: 200px;
+        width: auto;
+}
+
+a { 
+        color: inherit;
+        text-decoration:none;
+	color: #ffffff;
+	font-size: 18px;
+	line-height: 20px;
+	font-weight: normal;
+	font-family: 'Orienta', sans-serif;
+        text-align: left;
+}
+
+h2{
+    color: #ffffff;
+    font-weight: normal;
+    font-family: 'Ultra', sans-serif;
+    font-size:xx-large;
+    line-height: 42px;
+    text-transform: uppercase;
+}
+
+h3{
+    color: #ffffff;
+    font-weight: normal;
+    font-family: 'Ultra', sans-serif;
+    font-size:large;
+    line-height: 42px;
+    text-transform: uppercase;
+}
+
 .titleText{
         margin-bottom: -2px;
         text-align: center;
@@ -5,33 +57,217 @@
         font-family: fantasy;
         color: rgb(82, 0, 0);
     }
+
+.container{
+        margin-top: 300px;
+}
+
 .movieThumbnail{
-        margin-bottom: 2em;
+        border: crimson;
+        border-radius: 2px;
+        border-style: double;
+        margin: 2em 1em 2em 1em;
         width: 150px;
         height: auto;
-        flex-wrap: wrap;
-        flex-direction: column;
-        display: flex;
-        height: fit-content;
-        align-items: left;
+}
+
+.movieAvalability{
+        list-style-type:square;
+}
+
+.movieDescription{
+        list-style-type: none;
 }
 
 .selector{
+        width: 300px;
+        height: 50px;
+        margin-top: 2em;
+        margin-bottom: 3em;
+        border-radius: 20px;
         word-wrap: normal;
-        margin-top: auto;
-        text-decoration: solid;
-        font-size: large;
+        text-decoration:wavy;
+        font-size: x-large;
         font-weight: bold;
-        align-self: center;
         text-align: center;
         text-decoration: solid;
-        font-size: large;
         align-items: center;
+}
+
+.grid:hover {
+        background-color: rgb(66, 66, 66);
+        cursor: pointer;
+    }
+
+
+.seatStatuses {
+        align-content: center;
+        background: rgba(0, 0, 0, 0.1);
+        padding: 2px 5px;
+        border-radius: 2px;
+        color: #777;
+        list-style-type: none;
+        display:flex;
+        justify-content:space-evenly;
+        font-family: 'Ultra', sans-serif;
+}
+
+.screen {
+        margin: auto;
+        width: 170px;
+        background-color: #fff;
+        height: 70px;
+        box-shadow: 0 4px 10px rgba(255, 255, 255, 0.7);
+        margin-bottom: 1.5em;
+        margin-top: 5em;
+        display:flex;
+        justify-content: center;
+}
+      
+#theatarSeats{
+        text-align: center;
+        display: grid;
+        grid-gap: 3em;
+        grid-template-rows: repeat(var(--grid-rows), 15px);
+        grid-template-columns: repeat(var(--grid-cols), 10px);
+        margin-bottom: 3em;
+}
+
+.seats {
+
+        display: flex;
+        justify-content: center;
+}
+
+.seat:hover {
+        background-color: aqua;
+}
+      
+.seat {
+        border: 1px solid #ddd;
+        height: 25px;
+        width: 29px;
+        margin: 3px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        font-family: 'Ultra', sans-serif;
+      }
+
+.seatOccupied{
+        text-align: center;
+        background-color: #777; 
+        height: 25px;
+        width: 29px;
+        margin: 3px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        font-family: 'Ultra', sans-serif;
+}
+
+.defaultSeat{
+        background-color: rgb(255, 255, 255); 
+        height: 25px;
+        width: 29px;
+        margin: 3px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        font-family: 'Ultra', sans-serif;
+}
+
+.seatSelected{
+        background-color: rgb(0, 138, 18); 
+        height: 25px;
+        width: 29px;
+        margin: 3px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        font-family: 'Ultra', sans-serif;
+}
+
+.grid {
+        font-size: medium;
+        display: flex;
+        align-items: center;
+        width: 95%;
+        margin: 10px;
+        border: 1px solid rgb(82, 0, 0);
+        border-radius: 3px;
+
+    }
+
+    .grid:hover {
+        background-color: rgb(66, 66, 66);
+        cursor: pointer;
+    }
+
+    header {
+        position: fixed;
+        top: 0px;
+        min-height: 75px;
+        max-height: 200px;
+        width: auto;
+        padding: 0px 20px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: white;
+    
+    }
+
+    .movieDescription > .movieTitle {
+        color: black;
+        background-color: gold;
+        margin-bottom: 15px;
+        padding: 15px 0;
+        width: 100%;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .billingDetails{
+            margin-top: 200px;
+    }
+
+    .billingDetails{
+        font-family: 'Courier New', Courier, monospace !important;
+        border-radius: 50px;
+        border-width: 7px;
+        border-style: groove;
+        font-style: normal;
+        border-style: dashed;
+    }
+
+    .selection{
+        border-color: crimson;
+        background-color: black;
+        border-style:double;
+        border-width: 7px;
+        word-wrap: normal;
+        font-size:medium;
+        text-align: center;
+        align-items: center;
+        font-weight: lighter;
+    }
+
+.billDisplay{
+        border-color: crimson;
+        border-style:double;
+        border-radius: 50px;
+        border-width: 7px;
+        word-wrap: normal;
+        font-size: x-large;
+        text-align: center;
+        align-items: center;
+        font-weight: bolder;
 
 }
 
-
-
-
-
-        
+.countAndPrice{
+        border-color: crimson;
+        background-color: black;
+        border-style:double;
+        word-wrap: normal;
+        text-decoration: solid;
+        font-size: xx-large;
+        font-weight: bold;
+}
