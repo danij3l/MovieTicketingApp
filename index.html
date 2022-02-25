@@ -295,15 +295,15 @@ function change(radio) {
           }
           if (!event.target.classList.contains('seatOccupied') && !event.target.classList.contains('seatSelected')) {
             count++;
-
-            var total = count * price;
             event.target.classList.add("seatSelected");
-            document.getElementById("count").innerText = count;
-            document.getElementById("total").innerText = total;
-
           }
-          else
+          else{
+            count--;
             event.target.classList.remove("seatSelected");
+          }
+          var total = count * price;
+          document.getElementById("count").innerText = count;
+          document.getElementById("total").innerText = total;
         })
       }
 
