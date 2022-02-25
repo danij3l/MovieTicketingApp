@@ -218,9 +218,13 @@ function change(radio) {
 
 
 
-      /* todo:
+      /* 
+      partially done:
       movies are objects or arrays inestead of hardcoding
       every time if a user changes his mind and changes movie or time - seat position occupation resets
+
+
+      todo:
       add displaying of array or list of selected seats
       adding alert that doesn't allow user to click on seats before selecting the time of play
       
@@ -261,21 +265,17 @@ function change(radio) {
       document.getElementById(37).className = 'seatOccupied';
       document.getElementById(38).className = 'seatOccupied';
 
-
+      var show;
       //Function that splits three strings from option value and assigns them to the bill section
       function billDataSplitter(value) {
         
-        $( "#theatarSeats" ).load(window.location.href + " #theatarSeats" ); // should reset seat positions but throws error because no server
+        //$( "#theatarSeats" ).load(window.location.href + " #theatarSeats" ); // should reset seat positions but throws error because there's no server
 
         var price = $('#timeSelector').val().split(',')[0];
         var time = $('#timeSelector').val().split(',')[1];
         var show = $('#timeSelector').val().split(',')[2];
         document.getElementById("billData.show").value = show;
         document.getElementById("billData.timeOfShow").value = time;
-      }
-
-      function changeClass(seat, seatId) {
-        seat.className = "seatSelected";
       }
 
       var count = 0;
@@ -287,6 +287,12 @@ function change(radio) {
         item.addEventListener("click", (event) => {
           var price = $('#timeSelector').val().split(',')[0];
 
+          // allowing user to pick seats only after picking the show
+          if (document.getElementById("billData.show").value == ''){
+          alert("Sorry :( \n\nFirst pick the time of show in menu above, then you can select seats for given show.");
+          return;
+
+          }
           if (!event.target.classList.contains('seatOccupied') && !event.target.classList.contains('seatSelected')) {
             count++;
 
