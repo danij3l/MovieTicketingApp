@@ -264,6 +264,9 @@ function change(radio) {
 
       //Function that splits three strings from option value and assigns them to the bill section
       function billDataSplitter(value) {
+        
+        $( "#theatarSeats" ).load(window.location.href + " #theatarSeats" ); // should reset seat positions but throws error because no server
+
         var price = $('#timeSelector').val().split(',')[0];
         var time = $('#timeSelector').val().split(',')[1];
         var show = $('#timeSelector').val().split(',')[2];
