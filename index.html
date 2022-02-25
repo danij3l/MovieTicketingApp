@@ -126,6 +126,17 @@
             </select>
           </div>
 
+          <!-- form that takes array of times for each show-->
+          <form name="frmRadio" id="radio-buttons" action="">
+            <input type="radio" id="radio-hobbit" name="option" onclick="change(this)">Hobbit
+            <input type="radio" id="radio-lotr" name="option" onclick="change(this)">Lord Of the rings &nbsp;&nbsp;
+            <select id="arrays">
+              <option id="items"></option>
+            </select>
+          </form>
+
+
+
           <div class="selection">
             <h2>Select seats</h2>
 
@@ -175,6 +186,38 @@
 
 
     <script>
+
+      class Movie{
+        constructor(name, timesOfShow, price){
+            this.name = name;
+            this.timesOfShow = timesOfShow;
+            this.price = price;
+        }
+
+        passDate(indexOfDate) {
+            return this.timesOfShow[indexOfDate];
+  }
+      }
+
+      var hobbit = new Movie('Hobbit',[new Date("March 4 2022 17:00"), new Date("March 5 2022 18:00"), new Date("March 6 2022 19:00")], 10)
+      var lotr = new Movie('Lotr',[new Date("April 4 2022 17:00"), new Date("April 5 2022 18:00"), new Date("April 6 2022 19:00")], 10)
+
+      // Function that is going to change the select options
+function fillSelect(values) {
+  document.getElementById("arrays").innerHTML =
+    values.reduce((tmp, x) => `${tmp}<option>${x}</option>`, '');
+}
+
+function change(radio) {
+  if (radio.checked && radio.id === 'radio-hobbit.timesOfShow') {
+    fillSelect(hobbit.timesOfShow);
+  } else {
+    fillSelect(lotr.timesOfShow);
+  }
+}
+
+
+
       /* todo:
       movies are objects or arrays inestead of hardcoding
       every time if a user changes his mind and changes movie or time - seat position occupation resets
@@ -182,13 +225,7 @@
       adding alert that doesn't allow user to click on seats before selecting the time of play
       
       
-      let movies = [
-        {
-          "name": "Hobbit",
-          "price": "10",
-          "timesOfPlay": new Date('2022--17T03:24:00'),
-        },
-      ] */
+*/
 
 
       //import required for $
