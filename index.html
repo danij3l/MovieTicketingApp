@@ -176,7 +176,9 @@
 
             <h3>
               You have selected <span class="countAndPrice" id="count">0</span>
-              tickets for a price of $<span class="countAndPrice" aria-placeholder="" id="total">0</span>
+              tickets for a price of €<span class="countAndPrice" aria-placeholder="" id="total">0</span>
+              <br> 
+              You have reserved seats with numbers: <span class="seatingPositions" id="seatingPositions"></span>
             </h3>
 
           </div>
@@ -187,50 +189,34 @@
 
     <script>
 
-      class Movie{
-        constructor(name, timesOfShow, price){
-            this.name = name;
-            this.timesOfShow = timesOfShow;
-            this.price = price;
+      class Movie {
+        constructor(name, timesOfShow, price) {
+          this.name = name;
+          this.timesOfShow = timesOfShow;
+          this.price = price;
         }
 
         passDate(indexOfDate) {
-            return this.timesOfShow[indexOfDate];
-  }
+          return this.timesOfShow[indexOfDate];
+        }
       }
 
-      var hobbit = new Movie('Hobbit',[new Date("March 4 2022 17:00"), new Date("March 5 2022 18:00"), new Date("March 6 2022 19:00")], 10)
-      var lotr = new Movie('Lotr',[new Date("April 4 2022 17:00"), new Date("April 5 2022 18:00"), new Date("April 6 2022 19:00")], 10)
+      var hobbit = new Movie('Hobbit', [new Date("March 4 2022 17:00"), new Date("March 5 2022 18:00"), new Date("March 6 2022 19:00")], 10)
+      var lotr = new Movie('Lotr', [new Date("April 4 2022 17:00"), new Date("April 5 2022 18:00"), new Date("April 6 2022 19:00")], 10)
 
       // Function that is going to change the select options
-function fillSelect(values) {
-  document.getElementById("arrays").innerHTML =
-    values.reduce((tmp, x) => `${tmp}<option>${x}</option>`, '');
-}
+      function fillSelect(values) {
+        document.getElementById("arrays").innerHTML =
+          values.reduce((tmp, x) => `${tmp}<option>${x}</option>`, '');
+      }
 
-function change(radio) {
-  if (radio.checked && radio.id === 'radio-hobbit.timesOfShow') {
-    fillSelect(hobbit.timesOfShow);
-  } else {
-    fillSelect(lotr.timesOfShow);
-  }
-}
-
-
-
-      /* 
-      partially done:
-      movies are objects or arrays inestead of hardcoding
-      every time if a user changes his mind and changes movie or time - seat position occupation resets
-
-
-      todo:
-      add displaying of array or list of selected seats
-      adding alert that doesn't allow user to click on seats before selecting the time of play
-      
-      
-*/
-
+      function change(radio) {
+        if (radio.checked && radio.id === 'radio-hobbit.timesOfShow') {
+          fillSelect(hobbit.timesOfShow);
+        } else {
+          fillSelect(lotr.timesOfShow);
+        }
+      }
 
       //import required for $
       var script = document.createElement('script');
@@ -268,7 +254,7 @@ function change(radio) {
       var show;
       //Function that splits three strings from option value and assigns them to the bill section
       function billDataSplitter(value) {
-        
+
         //$( "#theatarSeats" ).load(window.location.href + " #theatarSeats" ); // should reset seat positions but throws error because there's no server
 
         var price = $('#timeSelector').val().split(',')[0];
@@ -280,6 +266,7 @@ function change(radio) {
 
       var count = 0;
       var seats = document.getElementsByClassName("seat");
+      var seatingPositions = [];
 
       for (var i = 0; i < seats.length; i++) {
         var item = seats[i];
@@ -288,22 +275,25 @@ function change(radio) {
           var price = $('#timeSelector').val().split(',')[0];
 
           // allowing user to pick seats only after picking the show
-          if (document.getElementById("billData.show").value == ''){
-          alert("Sorry :( \n\nFirst pick the time of show in menu above, then you can select seats for given show.");
-          return;
+          if (document.getElementById("billData.show").value == '') {
+            alert("Sorry :( \n\nFirst pick the time of show in menu above, then you can select seats for given show.");
+            return;
 
           }
           if (!event.target.classList.contains('seatOccupied') && !event.target.classList.contains('seatSelected')) {
             count++;
             event.target.classList.add("seatSelected");
+            seatingPositions.push(event.target.innerHTML);
           }
-          else{
+          else {
             count--;
             event.target.classList.remove("seatSelected");
+            seatingPositions.pop(event.target.innerHTML);
           }
           var total = count * price;
           document.getElementById("count").innerText = count;
           document.getElementById("total").innerText = total;
+          document.getElementById("seatingPositions").innerText = seatingPositions;
         })
       }
 
