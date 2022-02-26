@@ -293,6 +293,9 @@
           var total = count * price;
           document.getElementById("count").innerText = count;
           document.getElementById("total").innerText = total;
+
+          //sorting seating position ascendingly no matter in which order user picks
+          seatingPositions.sort((a,b)=>a-b);
           document.getElementById("seatingPositions").innerText = seatingPositions;
         })
       }
